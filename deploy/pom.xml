@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.unfae</groupId>
+		<artifactId>unfae-starwars</artifactId>
+		<version>0.3.2-SNAPSHOT</version>
+	</parent>
+	<groupId>com.unfae</groupId>
+	<artifactId>unfae-starwars-deploy</artifactId>
+	<packaging>rpm</packaging>
+
+	<properties>
+		<USER_NAME>ippjr</USER_NAME>
+		<GROUP_NAME>ippjr</GROUP_NAME>
+		<APP_HOME>/home/ippjr/apps</APP_HOME>
+	</properties>
+
+  	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>rpm-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<group>ippjr</group>
+					<summary>ippjr starwars api</summary>
+					<description>ppjr starwars api of oauth</description>
+					<vendor>IPPJR</vendor>
+					<packager>RPM</packager>
+					<needarch>noarch</needarch>
+					<prefix>${APP_HOME}</prefix>
+					<mappings>
+						<mapping>
+							<directory>${APP_HOME}/starwars_api/deploy</directory>
+							<filemode>754</filemode>
+							<username>${USER_NAME}</username>
+							<groupname>${GROUP_NAME}</groupname>
+							<sources>
+								<source>
+									<location>${basedir}/../deploy</location>
+								</source>
+							</sources>
+						</mapping>
+					</mappings>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
