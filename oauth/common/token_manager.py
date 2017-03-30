@@ -6,7 +6,7 @@ from config import RedisHost,RedisPost
 
 class Token_Manager(object):
     '''
-        data = {'username':'test','password':'123456'}
+        data = {'username':'test','urlrole':'/'}
         or something other user's data
     '''
     def __init__(self):
